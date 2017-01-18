@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>浮生若梦</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="icon" href="images/head/head.jpg">
+	<link type="text/css" rel="stylesheet" href="css/main.css">
+</head>
+
+<body align="center">
+	<h1 align="center"><a href="index.html">浮生若梦的博客</a></h1>
+	<h4 align="center">这个人比较懒，博客更新的慢也不要在意</h4>
+	<hr>
+	<div class="test_place">Loading</div>
+	<script>
+		function tojson(str) {
+			return JSON.parse(str);
+		}
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) {
+				var objRes = eval(xhr.responseText);
+				
+				var tempStr ='<ul align=\'left\'>';
+				for (tempDic in objRes) {
+					var title = objRes[tempDic].title;
+					var href = objRes[tempDic].href;
+					var desc = objRes[tempDic].desc;
+					var temp = "<a href=\""+href+"\" target=\"t\">"+title+"</a>";
+					tempStr += "<li>"
+					tempStr += temp
+					tempStr += '<br>'
+					tempStr += desc
+					tempStr += '<br><br></li>'
+				}
+				tempStr += '</ul>'
+				document.querySelector('.test_place').innerHTML = tempStr;
+			} else {
+				document.querySelector('.test_place').innerHTML = 'Loading';
+			}
+		};
+		xhr.open('GET', 'source/index_block.json');
+		xhr.send('123');
+	</script>
+	<!--<hr>
+	<ul align="left">
+		<li><a href="https://github.com/YueLiXing/LogChinese" target="t">LogChinese</a>
+			<br>
+			可以在控制台输出 数组和字典里面的中文字符
+			<br><br>
+		<li><a href="https://github.com/YueLiXing/IdentifierForReusable" target="t">IdentifierForReusable</a>
+		<br>
+			一个关于 iOS 开发中，常用的 复用view 的拓展类，例如 Cell，HeaderFooterView 等
+			<br><br>
+		<li><a href="https://github.com/DreamBuddy/DBCorner" target="t">DBCorner</a>
+			<br>DBCorner 为基于UIView的视图添加高性能圆角
+			<br><br>
+		<li><a href="http://python.usyiyi.cn/" target="t">python文档</a>
+			<br>
+			python 的文档，有兴趣的可以看下
+			<br><br>
+		<li><a href="http://docs.jinkan.org/docs/flask/" target="t">Flask文档</a>
+			<br>
+			flask 的文档，有兴趣的可以看下<br>
+			可以用来搭建简单的服务器
+			<br><br>
+			
+	</ul>-->
+	
+	<!--<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260488245'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1260488245%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>-->
+</body>
+
+</html>
