@@ -20,6 +20,11 @@
         "desc": "DBCorner 为基于UIView的视图添加高性能圆角"
     },
     {
+        "title": "PPAsyncDrawingKit(缩水版ASDK)",
+        "href": "https://github.com/DSKcpp/PPAsyncDrawingKit",
+        "desc": "这是一个轻量的异步绘制框架，实现一系列 UIKit 基础控件。"
+    },
+    {
         "title": "python文档",
         "href": "http://python.usyiyi.cn/",
         "desc": "python 的文档，有兴趣的可以看下"
