@@ -16,50 +16,21 @@
 	<hr>
 	<ul align="left">
 		<li>大神专栏</li>
-		<table align="center" border="0.5">
-			<thead>
-				<tr>
-					<th>大神</th>
-					<th>博客</th>
-					<th>github</th>
-					<th>简书</th>
-				</tr>
-			</thead>
-			<tr>
-				<td>bang哥</td>
-				<td><a href="http://blog.cnbang.net/" target="t">Jump</a></td>
-				<td><a href="https://github.com/bang590" target="t">Jump</a></td>
-				<td><a href="http://www.jianshu.com/users/542c8b81e2d4/timeline" target="t">Jump</a></td>
-			</tr>
-			<tr>
-				<td>唯敬</td>
-				<td><a href="http://awhisper.github.io/" target="t">Jump</a></td>
-				<td><a href="https://github.com/Awhisper" target="t">Jump</a></td>
-				<td><a href="http://www.jianshu.com/users/7c21f0b44ab8/latest_articles" target="t">Jump</a></td>
-			</tr>
-			<tr>
-				<td>孙源(sunnyxx)</td>
-				<td><a href="http://blog.sunnyxx.com/" target="t">Jump</a></td>
-				<td><a href="https://github.com/sunnyxx" target="t">Jump</a></td>
-				<td>暂无</td>
-				<!--<td><a href="http://www.jianshu.com/users/f3f47c6776a8/latest_articles" target="t">Jump</a></td>-->
-			</tr>
-			<tr>
-				<td>纳兰若水(女神)</td>
-				<td><a href="https://waterxu.github.io/" target="t">Jump</a></td>
-				<td><a href="https://github.com/waterXu" target="t">Jump</a></td>
-				<td><a href="http://www.jianshu.com/users/f3f47c6776a8/latest_articles" target="t">Jump</a></td>
-			</tr>
-			<tr>
-				<td>星星老师</td>
-				<!--<td>暂无</td>-->
-				<td><a href="http://www.cnblogs.com/YHStar/" target="t">Jump</a></td>
-				<td><a href="https://github.com/iStarEternal" target="t">Jump</a></td>
-				<td>暂无</td>
-				<!--<td><a href="http://www.jianshu.com/users/7c21f0b44ab8/latest_articles" target="t">Jump</a></td>-->
-			</tr>
-			
-		</table>
+
+		<div class="dashen">
+			<table align="center" border="0.5">
+				<thead>
+					<tr>
+						<th>大神</th>
+						<th>博客</th>
+						<th>github</th>
+						<th>简书</th>
+					</tr>
+				</thead>
+				<tr><td>Loading</td><td>Loading</td><td>Loading</td><td>Loading</td></tr>
+			</table>
+		</div>
+		
 		</li>
 		<li>'菜鸟'专栏
 			<table align="center" border="0.5">
@@ -129,9 +100,61 @@
 		};
 		xhr.open('GET', 'source/index_block.json');
 		xhr.send('123');
+
+
+		var tabdataRequest = new XMLHttpRequest();
+		tabdataRequest.onreadystatechange = function () {
+			if (tabdataRequest.readyState === 4 && tabdataRequest.status >= 200 && tabdataRequest.status < 300) {
+				console.log(tabdataRequest.responseText);
+				console.log("---");
+				console.log(JSON.parse(tabdataRequest.responsetext));
+				
+				// var objRes = eval(tabdataRequest.responseText);
+				console.log(objRes);
+				console.log(tabdataRequest.responseText);
+				var tempStr ="";
+				var emptyString = "<td>暂无</td>";
+				tempStr += "<table align=\"center\" border=\"0.5\">";
+				tempStr += "<thead><tr><th>大神</th><th>博客</th><th>github</th><th>简书</th></tr></thead>";
+				for (tempDic in objRes.dashen) {
+					var name = objRes[tempDic].name;
+					var blog = objRes[tempDic].blog;
+					var github = objRes[tempDic].github;
+					var jianshu = objRes[tempDic].jianshu;
+					var title = "Jump";
+					var temp = "<tr><td>"+name+"</td>";
+					if (blog) {
+						temp += "<td><a href=\""+href+"\" target=\"t\">"+title+"</a></td>"; 
+					} else {
+						temp += emptyString;
+					}
+					if (github) {
+						temp += "<td><a href=\""+github+"\" target=\"t\">"+title+"</a></td>"; 
+					} else {
+						temp += emptyString;
+					}
+					if (jianshu) {
+						temp += "<td><a href=\""+jianshu+"\" target=\"t\">"+title+"</a></td>"; 
+					} else {
+						temp += emptyString;
+					}
+					temp += "</tr>";
+					console.log(temp);
+					tempStr += temp;
+				}
+				tempStr += "</table>";
+				document.querySelector('.dashen').innerHTML = tempStr;
+			} else {
+				// document.querySelector('.dashen').innerHTML = 'Loading';
+				document.querySelector('.dashen').innerHTML = tabdataRequest.responseText;
+			}
+		};
+		tabdataRequest.open('GET', 'source/index_blog.json');
+		tabdataRequest.send('123');
+
 	</script>
 	<!--umeng网页统计代码-->
-	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260488245'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1260488245%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+	<!--<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260488245'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1260488245%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>-->
 </body>
 
 </html>
