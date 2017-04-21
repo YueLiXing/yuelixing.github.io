@@ -1,13 +1,18 @@
 [
     {
-        "title": "VKKeychainIDFV",
-        "href": "https://github.com/Awhisper/VKKeychainIDFV",
-        "desc": "获取uuid用户唯一标示"
-    },
-    {
         "title": "LogChinese",
         "href": "https://github.com/YueLiXing/LogChinese",
         "desc": "可以在控制台输出 数组和字典里面的中文字符"
+    },
+    {
+        "title": "M80AttributedLabel",
+        "href": "https://github.com/xiangwangfeng/M80AttributedLabel",
+        "desc": "一个很强大的Label，能添加图片和超链接"
+    },
+    {
+        "title": "VKKeychainIDFV",
+        "href": "https://github.com/Awhisper/VKKeychainIDFV",
+        "desc": "获取uuid用户唯一标示"
     },
     {
         "title": "IdentifierForReusable",
