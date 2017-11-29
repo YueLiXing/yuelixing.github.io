@@ -10,6 +10,11 @@
         "desc": "一个很强大的Label，能添加图片和超链接"
     },
     {
+        "title": "CJLabel",
+        "href": "https://github.com/lele8446/CJLabelTest",
+        "desc": "和上面是差不多的东西具体可点开链接查看"
+    },
+    {
         "title": "VKKeychainIDFV",
         "href": "https://github.com/Awhisper/VKKeychainIDFV",
         "desc": "获取uuid用户唯一标示"
