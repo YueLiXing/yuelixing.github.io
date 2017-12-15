@@ -4,43 +4,50 @@
             "name": "bang哥",
             "blog": "http://blog.cnbang.net",
             "github": "https://github.com/bang590",
-            "jianshu": "http://www.jianshu.com/users/542c8b81e2d4/timeline"
+            "jianshu": "http://www.jianshu.com/users/542c8b81e2d4/timeline",
+            "juejin": null
         },
         {
             "name": "唯敬(味精)",
             "blog": "http://awhisper.github.io",
             "github": "https://github.com/Awhisper",
-            "jianshu": "http://www.jianshu.com/users/7c21f0b44ab8/latest_articles"
+            "jianshu": "http://www.jianshu.com/users/7c21f0b44ab8/latest_articles",
+            "juejin": "https://juejin.im/user/577b02fb165abd005528028d"
         },
         {
             "name": "孙源(sunnyxx)",
             "blog": "http://blog.sunnyxx.com",
             "github": "https://github.com/sunnyxx",
-            "jianshu": null
+            "jianshu": null,
+            "juejin": null
         },
         {
             "name": "CoderMJLee(小马哥)",
             "blog": null,
             "github": "https://github.com/CoderMJLee",
-            "jianshu": null
+            "jianshu": null,
+            "juejin": null
         },
         {
             "name": "纳兰若水(学姐)",
             "blog": "https://waterxu.github.io",
             "github": "https://github.com/waterXu",
-            "jianshu": "http://www.jianshu.com/users/f3f47c6776a8/latest_articles"
+            "jianshu": "http://www.jianshu.com/users/f3f47c6776a8/latest_articles",
+            "juejin": "https://juejin.im/user/59a38979518825242238e4ee/article"
         },
         {
             "name": "星星老师",
             "blog": "http://www.cnblogs.com/YHStar",
             "github": "https://github.com/iStarEternal",
-            "jianshu": null
+            "jianshu": null,
+            "juejin": null
         },
         {
             "name": "Eliyar Eziz",
             "blog": "https://eliyar.biz/",
             "github": "https://github.com/BrikerMan",
-            "jianshu": null
+            "jianshu": null,
+            "juejin": null
         }
     ],
     "cainiao":[
@@ -48,25 +55,29 @@
             "name": "哇哈哈",
             "blog": "https://www.mobilezhao.com",
             "github": null,
-            "jianshu": null
+            "jianshu": null,
+            "juejin": null
         },
         {
             "name": "霍尔",
             "blog": "http://linkdream.xyz",
             "github": null,
-            "jianshu": null
+            "jianshu": null,
+            "juejin": null
         },
         {
             "name": "彩虹（工头）",
             "blog": "http://devsnow.net",
             "github": "https://github.com/DevSonw",
-            "jianshu": null
+            "jianshu": null,
+            "juejin": null
         },
         {
             "name": "继刚",
             "blog": "https://madordie.github.io/",
             "github": "https://github.com/madordie",
-            "jianshu": null
+            "jianshu": null,
+            "juejin": null
         }
     ]
 }

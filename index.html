@@ -10,10 +10,11 @@
 <body align="center">
 	<h1 align="center">浮生若梦的博客</a></h1>
 	<h4 align="center">这个人比较懒，博客更新的慢也不要在意</h4>
-	<h4 align="center"><a href="http://www.jianshu.com/u/c1606ae7b45b" target="t">我的简书</a>,<a href="https://github.com/YueLiXing" target="t">我的Github</a></h4>
+	<h4 align="center"><a href="https://juejin.im/user/57bba6a51532bc006579732b" target="t">我的掘金</a>,<a href="https://github.com/YueLiXing" target="t">我的Github</a></h4>
+	<h4 align="center">在下简书上的文章已全部转移掘金</h4>
 	<hr>
 	<div class="test_place">Loading</div>
-	
+
 	<hr>
 	<ul align="left">
 		<li>大神专栏</li>
@@ -25,13 +26,14 @@
 						<th>大神</th>
 						<th>博客</th>
 						<th>github</th>
+						<th>掘金</th>
 						<th>简书</th>
 					</tr>
 				</thead>
 				<tr><td>Loading</td><td>Loading</td><td>Loading</td><td>Loading</td></tr>
 			</table>
 		</div>
-		
+
 		</li>
 		<li>'菜鸟'专栏
 			<div class="cainiao">
@@ -41,6 +43,7 @@
 						<th>'菜鸟'</th>
 						<th>博客</th>
 						<th>github</th>
+						<th>掘金</th>
 						<th>简书</th>
 					</tr>
 				</thead>
@@ -53,6 +56,10 @@
 	<ul>
 		<li align='left'>JSPatch交流 Q群: 207283178</li>
 		<li align='left'>JSPatch水群 Q群: 533748702</li>
+		<hr>
+		<li align='left'>若有人知道上述人的掘金地址，希望发到 <a href="Mailto:1223343444@qq.com" target="t">在下的邮箱</a> </li>
+		<hr>
+		<li align='left'><a href="http://www.jianshu.com/u/c1606ae7b45b" target="t">辣鸡简书</a></li>
 	</ul>
 	<hr>
 	<!--加载常用库的代码-->
@@ -61,7 +68,7 @@
 		xhr.onreadystatechange = function () {
 			if (xhr.readyState === 4 && xhr.status >= 200 && xhr.status < 300) {
 				var objRes = JSON.parse(xhr.responseText);
-				
+
 				var tempStr ='<ul align=\"left\">';
 				for (tempDic in objRes) {
 					var title = objRes[tempDic].title;
@@ -83,6 +90,47 @@
 		xhr.open('GET', 'source/index_block.json');
 		xhr.send('123');
 
+		function changeToHtml(typeTitle,objRes) {
+			var tempStr ="";
+			var emptyString = "<td>暂无</td>";
+			tempStr += "<table align=\"center\" border=\"0.5\">";
+			tempStr += "<thead><tr><th>"+typeTitle+"</th><th>博客</th><th>github</th><th>掘金</th><th>简书</th></tr></thead>";
+			// 加载大神专栏代码
+			for (tempDic in objRes) {
+				var name = objRes[tempDic].name;
+				var blog = objRes[tempDic].blog;
+				var github = objRes[tempDic].github;
+				var juejin = objRes[tempDic].juejin;
+				var jianshu = objRes[tempDic].jianshu;
+				var title = "Jump";
+				var temp = "<tr><td>"+name+"</td>";
+				if (blog) {
+					temp += "<td><a href=\""+blog+"\" target=\"t\">"+title+"</a></td>";
+				} else {
+					temp += emptyString;
+				}
+				if (github) {
+					temp += "<td><a href=\""+github+"\" target=\"t\">"+title+"</a></td>";
+				} else {
+					temp += emptyString;
+				}
+				if (juejin) {
+					temp += "<td><a href=\""+juejin+"\" target=\"t\">"+title+"</a></td>";
+				} else {
+					temp += emptyString;
+				}
+				if (jianshu) {
+					temp += "<td><a href=\""+jianshu+"\" target=\"t\">"+title+"</a></td>";
+				} else {
+					temp += emptyString;
+				}
+				temp += "</tr>";
+				console.log(temp);
+				tempStr += temp;
+			}
+			tempStr += "</table>";
+			return tempStr;
+		}
 
 		var tabdataRequest = new XMLHttpRequest();
 		tabdataRequest.onreadystatechange = function () {
@@ -91,74 +139,8 @@
 				var objRes = dict.dashen;
 				console.log(objRes);
 				console.log(tabdataRequest.responseText);
-				var tempStr ="";
-				var emptyString = "<td>暂无</td>";
-				tempStr += "<table align=\"center\" border=\"0.5\">";
-				tempStr += "<thead><tr><th>大神</th><th>博客</th><th>github</th><th>简书</th></tr></thead>";
-				// 加载大神专栏代码
-				for (tempDic in objRes) {
-					var name = objRes[tempDic].name;
-					var blog = objRes[tempDic].blog;
-					var github = objRes[tempDic].github;
-					var jianshu = objRes[tempDic].jianshu;
-					var title = "Jump";
-					var temp = "<tr><td>"+name+"</td>";
-					if (blog) {
-						temp += "<td><a href=\""+blog+"\" target=\"t\">"+title+"</a></td>"; 
-					} else {
-						temp += emptyString;
-					}
-					if (github) {
-						temp += "<td><a href=\""+github+"\" target=\"t\">"+title+"</a></td>"; 
-					} else {
-						temp += emptyString;
-					}
-					if (jianshu) {
-						temp += "<td><a href=\""+jianshu+"\" target=\"t\">"+title+"</a></td>"; 
-					} else {
-						temp += emptyString;
-					}
-					temp += "</tr>";
-					console.log(temp);
-					tempStr += temp;
-				}
-				tempStr += "</table>";
-				document.querySelector('.dashen').innerHTML = tempStr;
-
-				// 加载'菜鸟'专栏代码
-				tempStr ="";
-				emptyString = "<td>暂无</td>";
-				tempStr += "<table align=\"center\" border=\"0.5\">";
-				tempStr += "<thead><tr><th>'菜鸟'</th><th>博客</th><th>github</th><th>简书</th></tr></thead>";
-				objRes = dict.cainiao;
-				for (tempDic in objRes) {
-					var name = objRes[tempDic].name;
-					var blog = objRes[tempDic].blog;
-					var github = objRes[tempDic].github;
-					var jianshu = objRes[tempDic].jianshu;
-					var title = "Jump";
-					var temp = "<tr><td>"+name+"</td>";
-					if (blog) {
-						temp += "<td><a href=\""+blog+"\" target=\"t\">"+title+"</a></td>"; 
-					} else {
-						temp += emptyString;
-					}
-					if (github) {
-						temp += "<td><a href=\""+github+"\" target=\"t\">"+title+"</a></td>"; 
-					} else {
-						temp += emptyString;
-					}
-					if (jianshu) {
-						temp += "<td><a href=\""+jianshu+"\" target=\"t\">"+title+"</a></td>"; 
-					} else {
-						temp += emptyString;
-					}
-					temp += "</tr>";
-					console.log(temp);
-					tempStr += temp;
-				}
-				tempStr += "</table>";
-				document.querySelector('.cainiao').innerHTML = tempStr;
+				document.querySelector('.dashen').innerHTML = changeToHtml("大神",dict.dashen);
+				document.querySelector('.cainiao').innerHTML = changeToHtml("\"菜鸟\"",dict.cainiao);
 			} else {
 				document.querySelector('.dashen').innerHTML = "加载失败";
 				document.querySelector('.cainiao').innerHTML = "加载失败";
