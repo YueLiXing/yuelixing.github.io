@@ -8,4 +8,5 @@ else
     git commit -m $1
 fi
 
-git push -u origin master
+git push
+# -u origin master
