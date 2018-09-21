@@ -15,6 +15,11 @@
         "desc": "和上面是差不多的东西具体可点开链接查看"
     },
     {
+        "title": "MMKV",
+        "href": "https://github.com/Tencent/MMKV/blob/master/readme_cn.md",
+        "desc": "微信出品，高性能通用 key-value 组件"
+    },
+    {
         "title": "VKKeychainIDFV",
         "href": "https://github.com/Awhisper/VKKeychainIDFV",
         "desc": "获取uuid用户唯一标示"
