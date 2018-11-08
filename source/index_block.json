@@ -25,7 +25,7 @@
         "desc": "获取uuid用户唯一标示"
     },
     {
-        "title": "VKKeychainIDFV",
+        "title": "VKMsgSend",
         "href": "https://github.com/Awhisper/VKMsgSend",
         "desc": "用起来很像performselector,但是完全没有参数个数限制，以及参数id类型限制，（任意类型 struct int bool）"
     },
